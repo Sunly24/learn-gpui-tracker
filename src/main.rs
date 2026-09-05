@@ -9,6 +9,9 @@ use gpui_kit::component::{
     Root,
     Icon,
     IconName,
+    Sizable,
+    button::Button,
+    button::ButtonVariants,
 };
 
 /// Application-specific assets embedded at compile time.
@@ -245,5 +248,34 @@ fn main_content() -> impl IntoElement {
     div()
         .flex_1()
         .h_full()
+        .flex()
+        .flex_col()
+        .child(
+            div()
+                .h(px(56.0))
+                .flex()
+                .items_center()
+                .px(px(28.0))
+                .border_b_1()
+                .border_color(rgb(0x272a2f))
+                .child(
+                    div()
+                        .text_color(rgb(0x686c74))
+                        .text_size(px(12.0))
+                        .child("Issues"),
+                )
+                .child(div().mx(px(8.0)).text_color(rgb(0x44474d)).child("/"))
+                .child(div().text_size(px(12.0)).child("Active"))
+                .child(div().flex_1())
+                .child(
+                    div()
+                        .flex()
+                        .items_center()
+                        .gap(px(6.0))
+                        .child(Button::new("filter").ghost().label("Filter").small())
+                        .child(Button::new("sort").ghost().label("Sort").small())
+                        .child(Button::new("new").primary().label("New issue").small()),
+                ),
+        )
 }
 
