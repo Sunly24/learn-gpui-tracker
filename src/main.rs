@@ -1,5 +1,5 @@
-use gpui::*;
-use gpui_component::Root;
+use gpui_kit::component::Root;
+use gpui_kit::*;
 
 struct App;
 
@@ -10,10 +10,10 @@ impl Render for App {
 }
 
 fn main() {
-    let app = gpui_platform::application();
+    let app = gpui_kit::application();
 
     app.run(|cx| {
-        gpui_component::init(cx);
+        gpui_kit::init(cx);
 
         cx.open_window(
             WindowOptions::default(),
